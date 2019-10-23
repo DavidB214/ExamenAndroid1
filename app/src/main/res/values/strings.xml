@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyFilmRatesAPP</string>
+    <string name="title_activity_my_rates">MyRates</string>
+    <string name="profile">Profile</string>
+    <string name="explicit_intent_web">Explicit Intent Web</string>
+    <string name="implicit_intent">Implicit_Intent</string>
+    <string name="hint">hint</string>
+</resources>
