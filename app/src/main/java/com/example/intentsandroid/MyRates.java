@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 
 public class MyRates extends AppCompatActivity {
@@ -30,6 +31,30 @@ public class MyRates extends AppCompatActivity {
                 startActivity(goToAddFilm);
             }
         });
+    }
+    protected void onStart(){
+        super.onStart();
+        Log.d("ESTATS","Start_MyRates");
+    }
+    protected void onResume(){
+        super.onResume();
+        Log.d("ESTATS","Resume_MyRates");
+    }
+    protected void onPause(){
+        super.onPause();
+        Log.d("ESTATS","Pause_MyRates");
+    }
+    protected void onStop(){
+        super.onStop();
+        Log.d("ESTATS","Stop_MyRates");
+    }
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d("ESTATS","Destroy_MyRates");
+    }
+    protected void onRestart(){
+        super.onRestart();
+        Log.d("ESTATS","Restart_MyRates");
     }
 
 }

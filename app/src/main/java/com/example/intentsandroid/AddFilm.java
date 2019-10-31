@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,5 +29,29 @@ public class AddFilm extends AppCompatActivity {
         if (sendIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(sendIntent);
         }
+    }
+    protected void onStart(){
+        super.onStart();
+        Log.d("ESTATS","Start_AddFilm");
+    }
+    protected void onResume(){
+        super.onResume();
+        Log.d("ESTATS","Resume_AddFilm");
+    }
+    protected void onPause(){
+        super.onPause();
+        Log.d("ESTATS","Pause_AddFilm");
+    }
+    protected void onStop(){
+        super.onStop();
+        Log.d("ESTATS","Stop_AddFilm");
+    }
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d("ESTATS","Destroy_AddFilm");
+    }
+    protected void onRestart(){
+        super.onRestart();
+        Log.d("ESTATS","Restart_AddFilm");
     }
 }
