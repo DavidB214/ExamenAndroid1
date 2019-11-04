@@ -38,19 +38,20 @@ public class Profile extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         Log.d("ESTATS","Start_Profile");
+
+    }
+    protected void onResume(){
+        super.onResume();
+        Log.d("ESTATS","Resume_Profile");
         EditText usr=findViewById(R.id.userName);
         EditText em=findViewById(R.id.email);
         EditText name=findViewById(R.id.nom);
         EditText cog=findViewById(R.id.cognom);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        usr.setHint(sharedPref.getString("userName","@string/nomUser"));
-        em.setHint(sharedPref.getString("email","@string/email"));
-        name.setHint(sharedPref.getString("nom","@string/nom"));
-        cog.setHint(sharedPref.getString("cognom","@string/cognom"));
-    }
-    protected void onResume(){
-        super.onResume();
-        Log.d("ESTATS","Resume_Profile");
+        usr.setHint(sharedPref.getString("userName","Nom Usuari"));
+        em.setHint(sharedPref.getString("email","Email"));
+        name.setHint(sharedPref.getString("nom","Nom"));
+        cog.setHint(sharedPref.getString("cognom","Cognom"));
     }
     protected void onPause(){
         super.onPause();
@@ -59,9 +60,6 @@ public class Profile extends AppCompatActivity {
     protected void onStop(){
         super.onStop();
         Log.d("ESTATS","Stop_Profile");
-    }
-    protected void onDestroy(){
-        super.onDestroy();
         EditText usr=findViewById(R.id.userName);
         String userName = usr.getText().toString();
         EditText em=findViewById(R.id.email);
@@ -70,14 +68,28 @@ public class Profile extends AppCompatActivity {
         String nom = name.getText().toString();
         EditText cog=findViewById(R.id.cognom);
         String cognom = cog.getText().toString();
-        Log.d("ESTATS","Destroy_Profile");
+
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("userName", userName);
-        editor.putString("email", email);
-        editor.putString("nom", nom);
-        editor.putString("cognom", cognom);
+        if(userName.length()!=0){
+            editor.putString("userName", userName);
+        }
+        if(email.length()!=0){
+            editor.putString("email", email);
+        }
+        if(nom.length()!=0){
+            Log.d("ESTATS",nom);
+            Log.d("ESTATS",""+nom.length());
+            editor.putString("nom", nom);
+        }
+        if(cognom.length()!=0){
+            editor.putString("cognom", cognom);
+        }
         editor.commit();
+    }
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d("ESTATS","Destroy_Profile");
     }
     protected void onRestart(){
         super.onRestart();

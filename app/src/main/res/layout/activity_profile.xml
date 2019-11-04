@@ -25,7 +25,6 @@
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/nomUser"
         android:inputType="textPersonName"
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +36,7 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="256dp"
+        android:layout_width="258dp"
         android:layout_height="61dp"
         android:ems="10"
         android:inputType="textEmailAddress"
@@ -49,7 +48,7 @@
 
     <EditText
         android:id="@+id/nom"
-        android:layout_width="260dp"
+        android:layout_width="258dp"
         android:layout_height="46dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -84,11 +83,13 @@
 
     <EditText
         android:id="@+id/biografia"
-        android:layout_width="268dp"
+        android:layout_width="258dp"
         android:layout_height="93dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLines="5"
+        android:inputType="textMultiLine|textPersonName"
+        android:lines="4"
+        android:maxLines="4"
+        android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cognom"
         app:layout_constraintHorizontal_bias="1.0"
