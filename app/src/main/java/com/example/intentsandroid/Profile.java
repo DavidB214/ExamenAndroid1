@@ -10,8 +10,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
@@ -47,11 +50,19 @@ public class Profile extends AppCompatActivity {
         EditText em=findViewById(R.id.email);
         EditText name=findViewById(R.id.nom);
         EditText cog=findViewById(R.id.cognom);
+        Spinner spinner=findViewById(R.id.spinner);
+        EditText bio=findViewById(R.id.biografia);
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         usr.setHint(sharedPref.getString("userName","Nom Usuari"));
         em.setHint(sharedPref.getString("email","Email"));
         name.setHint(sharedPref.getString("nom","Nom"));
         cog.setHint(sharedPref.getString("cognom","Cognom"));
+        int pos=(sharedPref.getInt("spinnerPos",0));
+        spinner.setSelection(pos);
+        bio.setHint(sharedPref.getString("biografia","Biografia"));
+        CheckBox check=findViewById(R.id.checkBox);
+        check.setChecked(sharedPref.getBoolean("CheckBox",false));
+
     }
     protected void onPause(){
         super.onPause();
@@ -68,9 +79,13 @@ public class Profile extends AppCompatActivity {
         String nom = name.getText().toString();
         EditText cog=findViewById(R.id.cognom);
         String cognom = cog.getText().toString();
+        EditText bio=findViewById(R.id.biografia);
+        String biografia = bio.getText().toString();
+        CheckBox news=findViewById(R.id.checkBox);
+        Boolean newsletter=news.isChecked();
 
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        final SharedPreferences.Editor editor = sharedPref.edit();
         if(userName.length()!=0){
             editor.putString("userName", userName);
         }
@@ -78,13 +93,19 @@ public class Profile extends AppCompatActivity {
             editor.putString("email", email);
         }
         if(nom.length()!=0){
-            Log.d("ESTATS",nom);
-            Log.d("ESTATS",""+nom.length());
             editor.putString("nom", nom);
         }
         if(cognom.length()!=0){
             editor.putString("cognom", cognom);
         }
+        if(biografia.length()!=0){
+            editor.putString("biografia", biografia);
+        }
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        int pos=spinner.getSelectedItemPosition();
+        editor.putInt("spinnerPos",pos);
+        editor.putBoolean("CheckBox",newsletter);
+        Log.d("ESTATS",newsletter+"");
         editor.commit();
     }
     protected void onDestroy(){

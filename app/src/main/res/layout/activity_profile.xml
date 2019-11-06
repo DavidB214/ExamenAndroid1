@@ -29,10 +29,10 @@
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.092" />
 
     <EditText
         android:id="@+id/email"
@@ -44,7 +44,8 @@
         app:layout_constraintEnd_toEndOf="@+id/userName"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/userName"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintTop_toBottomOf="@+id/userName"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/nom"
@@ -83,18 +84,28 @@
 
     <EditText
         android:id="@+id/biografia"
-        android:layout_width="258dp"
-        android:layout_height="93dp"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:inputType="textMultiLine|textPersonName"
         android:lines="4"
         android:maxLines="4"
         android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cognom"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/cognom"
-        app:layout_constraintTop_toBottomOf="@+id/cognom"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="262dp"
+        android:layout_height="53dp"
+        android:entries="@array/sex"
+        android:prompt="@string/sex_prompt"
+        app:layout_constraintEnd_toEndOf="@+id/cognom"
+        app:layout_constraintStart_toStartOf="@+id/cognom"
+        app:layout_constraintTop_toBottomOf="@+id/cognom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

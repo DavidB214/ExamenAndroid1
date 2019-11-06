@@ -5,4 +5,13 @@
     <string name="explicit_intent_web">Explicit Intent Web</string>
     <string name="implicit_intent">Implicit_Intent</string>
     <string name="hint">hint</string>
+
+    <string name="sex_prompt">Selecione su sexo</string>
+
+    <string-array name="sex">
+        <item>Masculi</item>
+        <item>Femeni</item>
+        <item>Altres</item>
+    </string-array>
+
 </resources>
