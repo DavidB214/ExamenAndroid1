@@ -11,8 +11,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
+import java.util.List;
 
 public class MyRates extends AppCompatActivity {
+    private Pelis peli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,14 @@ public class MyRates extends AppCompatActivity {
     }
     protected void onResume(){
         super.onResume();
-        Log.d("ESTATS","Resume_MyRates");
+        TextView nPeli = findViewById(R.id.nomPeli);
+        PeliLab mPeli =PeliLab.get(this);
+        List<Pelis> pelis = mPeli.getPelis();
+        if(pelis.size()>0){
+            peli=pelis.get(0);
+            nPeli.setText(peli.getNom());
+        }
+
     }
     protected void onPause(){
         super.onPause();

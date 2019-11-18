@@ -7,28 +7,31 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 public class AddFilm extends AppCompatActivity {
 
+    private EditText name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_film);
-        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-    }
-    public void pruebaIntent(View v){
-
-        Intent sendIntent = new Intent();
-        TextInputEditText text = findViewById(R.id.textInput);
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text.getText().toString());
-        sendIntent.setType("text/plain");
-
-        if (sendIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(sendIntent);
-        }
+//        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+//    }
+//    public void pruebaIntent(View v){
+//
+//        Intent sendIntent = new Intent();
+//        TextInputEditText text = findViewById(R.id.textInput);
+//        sendIntent.setAction(Intent.ACTION_SEND);
+//        sendIntent.putExtra(Intent.EXTRA_TEXT, text.getText().toString());
+//        sendIntent.setType("text/plain");
+//
+//        if (sendIntent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(sendIntent);
+//        }
     }
     protected void onStart(){
         super.onStart();
@@ -44,7 +47,14 @@ public class AddFilm extends AppCompatActivity {
     }
     protected void onStop(){
         super.onStop();
-        Log.d("ESTATS","Stop_AddFilm");
+         name = findViewById(R.id.nom);
+         String nom=name.getText().toString();
+         if(!nom.equals("")){
+             Pelis peli=new Pelis();
+             peli.setPeli(nom);
+         }
+
+
     }
     protected void onDestroy(){
         super.onDestroy();

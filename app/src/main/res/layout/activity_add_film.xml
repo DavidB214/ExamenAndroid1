@@ -6,35 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".AddFilm">
 
-    <Button
-        android:id="@+id/intentBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="pruebaIntent"
-        android:text="@string/implicit_intent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+        android:id="@+id/dir"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Director"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/nom"
+        app:layout_constraintStart_toStartOf="@+id/nom"
+        app:layout_constraintTop_toBottomOf="@+id/nom" />
+
+    <EditText
+        android:id="@+id/nom"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="156dp"
+        android:ems="10"
+        android:hint="FilmName"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/any"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Year"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/dir"
+        app:layout_constraintStart_toStartOf="@+id/dir"
+        app:layout_constraintTop_toBottomOf="@+id/dir" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="299dp"
-        android:layout_height="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="237dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/any"
+        app:layout_constraintStart_toStartOf="@+id/any"
+        app:layout_constraintTop_toBottomOf="@+id/any" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint"
-            android:singleLine="true" />
-    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
