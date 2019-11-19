@@ -11,13 +11,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.List;
 
 public class MyRates extends AppCompatActivity {
-    private Pelis peli;
-
+    private TextView mTextoNota;
+    private PeliLab mNotaLab;
+    private Peli mNota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,21 +37,19 @@ public class MyRates extends AppCompatActivity {
                 startActivity(goToAddFilm);
             }
         });
+
+        mTextoNota = findViewById(R.id.nomPeli);
+
+        mNotaLab = PeliLab.get(this);
+        List<Peli> notas = mNotaLab.getNotas();
+        if(notas.size() > 0) {
+            mNota = notas.get(0);
+            mTextoNota.setText(mNota.getMensaje());
+        }
     }
     protected void onStart(){
         super.onStart();
         Log.d("ESTATS","Start_MyRates");
-    }
-    protected void onResume(){
-        super.onResume();
-        TextView nPeli = findViewById(R.id.nomPeli);
-        PeliLab mPeli =PeliLab.get(this);
-        List<Pelis> pelis = mPeli.getPelis();
-        if(pelis.size()>0){
-            peli=pelis.get(0);
-            nPeli.setText(peli.getNom());
-        }
-
     }
     protected void onPause(){
         super.onPause();

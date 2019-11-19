@@ -7,6 +7,8 @@
     <string name="hint">hint</string>
 
     <string name="sex_prompt">Selecione su sexo</string>
+    <string name="nota_creada">Peli creada</string>
+    <string name="nota_actualizada">Peli Actualizada</string>
 
     <string-array name="sex">
         <item>Masculi</item>
