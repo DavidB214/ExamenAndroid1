@@ -17,15 +17,29 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MyRates extends AppCompatActivity {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTextoNota = findViewById(R.id.nomPeli);
+
+        mNotaLab = NotaLab.get(this);
+        List<Nota> notas = mNotaLab.getNotas();
+        if(notas.size() > 0) {
+            mNota = notas.get(0);
+            mTextoNota.setText(mNota.getMensaje());
+        }
+        Log.d("ESTATS","MyRates_on_resume");
+    }
+
     private TextView mTextoNota;
-    private PeliLab mNotaLab;
-    private Peli mNota;
+    private NotaLab mNotaLab;
+    private Nota mNota;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_rates);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mTextoNota = findViewById(R.id.nomPeli);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -38,16 +52,6 @@ public class MyRates extends AppCompatActivity {
             }
         });
 
-        mTextoNota = findViewById(R.id.nomPeli);
-
-        mNotaLab = PeliLab.get(this);
-        if(mNotaLab!=null){
-            List<Peli> notas = mNotaLab.getNotas();
-            if(notas.size() > 0) {
-                mNota = notas.get(0);
-                mTextoNota.setText(mNota.getMensaje());
-            }
-        }
     }
     protected void onStart(){
         super.onStart();

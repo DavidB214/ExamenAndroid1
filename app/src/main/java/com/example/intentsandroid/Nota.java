@@ -7,15 +7,22 @@ import androidx.room.PrimaryKey;
 
 import java.util.UUID;
 
-@Entity(tableName = "peli")
-public class Peli {
+/**
+ * Esta clase contiene un objeto de tipo Nota, con un id y el texto de dicha Nota.
+ *
+ * @author Miguel Callejón Berenguer
+ * @version 2018.07
+ */
+
+@Entity(tableName = "nota")
+public class Nota {
     @PrimaryKey
     @NonNull
     private String mId;
     @ColumnInfo(name = "contenido")
     private String mMensaje;
 
-    public Peli() {
+    public Nota() {
         mId = UUID.randomUUID().toString();
     }
 

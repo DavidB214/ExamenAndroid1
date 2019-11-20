@@ -15,38 +15,16 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AddFilm extends AppCompatActivity {
 
-    private PeliLab mNotaLab;
-    private Peli mNota;
-
     private EditText mTextoNota;
+
+    private NotaLab mNotaLab;
+    private Nota mNota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_film);
-        final EditText mTextoNota= findViewById(R.id.nom);
-
-        Button b = findViewById(R.id.b);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String textoNota = mTextoNota.getText().toString();
-                Log.d("ESTATS", "coso");
-                if(!textoNota.equals("")) {
-                    if(mNota == null) {
-                        mNota = new Peli();
-                        Log.d("ESTATS", "Peli done");
-                        mNota.setMensaje(textoNota);
-                        Log.d("ESTATS", textoNota+" setMensaje");
-                        mNotaLab.addNota(mNota);
-                    } else {
-                        mNota.setMensaje(textoNota);
-                        mNotaLab.updateNota(mNota);
-                    }
-                }
-            }
-        });
+        mTextoNota= findViewById(R.id.nom);
 
 //        Intent sendIntent = new Intent(Intent.ACTION_SEND);
 //    }
@@ -75,6 +53,7 @@ public class AddFilm extends AppCompatActivity {
 
     protected void onPause() {
         super.onPause();
+        guardar();
         Log.d("ESTATS", "Pause_AddFilm");
     }
 
@@ -91,5 +70,26 @@ public class AddFilm extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.d("ESTATS", "Restart_AddFilm");
+    }
+
+    private void guardar() {
+        String textoNota = mTextoNota.getText().toString();
+        if(!textoNota.equals("")) {
+            if(mNota == null) {
+                mNota = new Nota();
+                mNota.setMensaje(textoNota);
+                mNotaLab.addNota(mNota);
+                Toast.makeText(this, "Creada",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                mNota.setMensaje(textoNota);
+                mNotaLab.updateNota(mNota);
+                Toast.makeText(this, "Actualizada",
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Crea nota primero",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }
