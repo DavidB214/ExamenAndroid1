@@ -11,7 +11,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -24,8 +26,21 @@ public class MyRates extends AppCompatActivity {
 
         mNotaLab = NotaLab.get(this);
         List<Nota> notas = mNotaLab.getNotas();
+        LinearLayout llBotonera = (LinearLayout) findViewById(R.id.listado);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT );
+        int numBotones = notas.size();
+        for (int i=0; i<numBotones; i++){
+            Button button = new Button(this);
+            //Asignamos propiedades de layout al boton
+            button.setLayoutParams(lp);
+            //Asignamos Texto al botón
+            button.setText(notas.get(i).getMensaje());
+            //Añadimos el botón a la botonera
+            llBotonera.addView(button);
+        }
         if(notas.size() > 0) {
-            mNota = notas.get(0);
+            mNota = notas.get(notas.size()-1);
             mTextoNota.setText(mNota.getMensaje());
         }
         Log.d("ESTATS","MyRates_on_resume");

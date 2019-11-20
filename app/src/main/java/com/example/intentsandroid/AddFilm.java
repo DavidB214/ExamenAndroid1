@@ -26,6 +26,8 @@ public class AddFilm extends AppCompatActivity {
         setContentView(R.layout.activity_add_film);
         mTextoNota= findViewById(R.id.nom);
 
+        mNotaLab=NotaLab.get(this);
+
 //        Intent sendIntent = new Intent(Intent.ACTION_SEND);
 //    }
 //    public void pruebaIntent(View v){
@@ -50,10 +52,14 @@ public class AddFilm extends AppCompatActivity {
         super.onResume();
         Log.d("ESTATS", "Resume_AddFilm");
     }
-
+    @Override
     protected void onPause() {
         super.onPause();
         guardar();
+        Intent intent = new Intent(this, MyRates.class);
+        startActivity(intent);
+        finish();
+        Log.d("ESTATS", "AddFilm_on_pause");
         Log.d("ESTATS", "Pause_AddFilm");
     }
 
@@ -73,16 +79,16 @@ public class AddFilm extends AppCompatActivity {
     }
 
     private void guardar() {
-        String textoNota = mTextoNota.getText().toString();
-        if(!textoNota.equals("")) {
+        String textoPelicula = mTextoNota.getText().toString();
+        if(!textoPelicula.equals("")) {
             if(mNota == null) {
                 mNota = new Nota();
-                mNota.setMensaje(textoNota);
+                mNota.setMensaje(textoPelicula);
                 mNotaLab.addNota(mNota);
                 Toast.makeText(this, "Creada",
                         Toast.LENGTH_SHORT).show();
             } else {
-                mNota.setMensaje(textoNota);
+                mNota.setMensaje(textoPelicula);
                 mNotaLab.updateNota(mNota);
                 Toast.makeText(this, "Actualizada",
                         Toast.LENGTH_SHORT).show();
