@@ -41,10 +41,12 @@ public class MyRates extends AppCompatActivity {
         mTextoNota = findViewById(R.id.nomPeli);
 
         mNotaLab = PeliLab.get(this);
-        List<Peli> notas = mNotaLab.getNotas();
-        if(notas.size() > 0) {
-            mNota = notas.get(0);
-            mTextoNota.setText(mNota.getMensaje());
+        if(mNotaLab!=null){
+            List<Peli> notas = mNotaLab.getNotas();
+            if(notas.size() > 0) {
+                mNota = notas.get(0);
+                mTextoNota.setText(mNota.getMensaje());
+            }
         }
     }
     protected void onStart(){
