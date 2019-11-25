@@ -10,11 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -22,27 +25,36 @@ public class MyRates extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mTextoNota = findViewById(R.id.nomPeli);
+//        mTextoNota = findViewById(R.id.nomPeli);
 
         mNotaLab = NotaLab.get(this);
         List<Nota> notas = mNotaLab.getNotas();
         LinearLayout llBotonera = (LinearLayout) findViewById(R.id.listado);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT );
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        llBotonera.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
+        llBotonera.setGravity(Gravity.CENTER);
         int numBotones = notas.size();
+        llBotonera.setY(180);
         for (int i=0; i<numBotones; i++){
             Button button = new Button(this);
-            //Asignamos propiedades de layout al boton
             button.setLayoutParams(lp);
+            button.setBackgroundResource(R.drawable.button_style);
+            TextView tx=new TextView(this);
+            tx.setX(50);
+//            tx.setLayoutParams(lp);
+            //Asignamos propiedades de layout al boton
             //Asignamos Texto al botón
-            button.setText(notas.get(i).getMensaje());
             //Añadimos el botón a la botonera
+            button.setText(notas.get(i).getMensaje());
+            tx.setText(notas.get(i).getRating()+"/5");
             llBotonera.addView(button);
+            llBotonera.addView(tx);
         }
-        if(notas.size() > 0) {
-            mNota = notas.get(notas.size()-1);
-            mTextoNota.setText(mNota.getMensaje());
-        }
+//        if(notas.size() > 0) {
+//            mNota = notas.get(notas.size()-1);
+//            mTextoNota.setText(mNota.getMensaje());
+//        }
         Log.d("ESTATS","MyRates_on_resume");
     }
 
@@ -54,7 +66,7 @@ public class MyRates extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_rates);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        mTextoNota = findViewById(R.id.nomPeli);
+//        mTextoNota = findViewById(R.id.nomPeli);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +86,7 @@ public class MyRates extends AppCompatActivity {
     }
     protected void onPause(){
         super.onPause();
+        finish();
         Log.d("ESTATS","Pause_MyRates");
     }
     protected void onStop(){

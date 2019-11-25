@@ -3,11 +3,13 @@ package com.example.intentsandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Rating;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +18,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class AddFilm extends AppCompatActivity {
 
     private EditText mTextoNota;
-
+    private RatingBar mRating;
     private NotaLab mNotaLab;
     private Nota mNota;
 
@@ -25,7 +27,7 @@ public class AddFilm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_film);
         mTextoNota= findViewById(R.id.nom);
-
+        mRating= findViewById(R.id.ratingBar);
         mNotaLab=NotaLab.get(this);
 
 //        Intent sendIntent = new Intent(Intent.ACTION_SEND);
@@ -80,10 +82,12 @@ public class AddFilm extends AppCompatActivity {
 
     private void guardar() {
         String textoPelicula = mTextoNota.getText().toString();
+        String rating = mRating.getRating()+"";
         if(!textoPelicula.equals("")) {
             if(mNota == null) {
                 mNota = new Nota();
                 mNota.setMensaje(textoPelicula);
+                mNota.setRating(rating);
                 mNotaLab.addNota(mNota);
                 Toast.makeText(this, "Creada",
                         Toast.LENGTH_SHORT).show();

@@ -22,6 +22,9 @@ public class Nota {
     @ColumnInfo(name = "contenido")
     private String mMensaje;
 
+    @ColumnInfo(name = "puntuacion")
+    private String rating;
+
     public Nota() {
         mId = UUID.randomUUID().toString();
     }
@@ -38,8 +41,14 @@ public class Nota {
     public String getMensaje() {
         return mMensaje;
     }
+    public String getRating(){
+        return rating;
+    }
 
     public void setMensaje(String mensaje) {
         mMensaje = mensaje;
+    }
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }
