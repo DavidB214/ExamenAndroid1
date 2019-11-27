@@ -47,7 +47,7 @@ public class MyRates extends AppCompatActivity {
             //Asignamos Texto al botón
             //Añadimos el botón a la botonera
             button.setText(notas.get(i).getMensaje());
-            tx.setText(notas.get(i).getRating()+"/5");
+            tx.setText(notas.get(i).getRating()+"/5"+"    Director: "+notas.get(i).getDirector()+"       Fecha: "+notas.get(i).getFecha());
             llBotonera.addView(button);
             llBotonera.addView(tx);
         }

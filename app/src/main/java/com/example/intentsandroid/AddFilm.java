@@ -18,6 +18,8 @@ import com.google.android.material.textfield.TextInputEditText;
 public class AddFilm extends AppCompatActivity {
 
     private EditText mTextoNota;
+    private EditText mFecha;
+    private EditText mDirector;
     private RatingBar mRating;
     private NotaLab mNotaLab;
     private Nota mNota;
@@ -28,6 +30,8 @@ public class AddFilm extends AppCompatActivity {
         setContentView(R.layout.activity_add_film);
         mTextoNota= findViewById(R.id.nom);
         mRating= findViewById(R.id.ratingBar);
+        mFecha=findViewById(R.id.any);
+        mDirector=findViewById(R.id.dir);
         mNotaLab=NotaLab.get(this);
 
 //        Intent sendIntent = new Intent(Intent.ACTION_SEND);
@@ -83,10 +87,15 @@ public class AddFilm extends AppCompatActivity {
     private void guardar() {
         String textoPelicula = mTextoNota.getText().toString();
         String rating = mRating.getRating()+"";
+        String director = mDirector.getText().toString();
+        String fecha = mFecha.getText().toString();
         if(!textoPelicula.equals("")) {
             if(mNota == null) {
                 mNota = new Nota();
                 mNota.setMensaje(textoPelicula);
+                mNota.setRating(rating);
+                mNota.setDirector(director);
+                mNota.setFecha(fecha);
                 mNota.setRating(rating);
                 mNotaLab.addNota(mNota);
                 Toast.makeText(this, "Creada",

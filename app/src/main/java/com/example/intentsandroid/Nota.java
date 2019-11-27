@@ -25,6 +25,12 @@ public class Nota {
     @ColumnInfo(name = "puntuacion")
     private String rating;
 
+    @ColumnInfo(name = "director")
+    private String director;
+
+    @ColumnInfo(name = "fecha")
+    private String fecha;
+
     public Nota() {
         mId = UUID.randomUUID().toString();
     }
@@ -44,11 +50,23 @@ public class Nota {
     public String getRating(){
         return rating;
     }
+    public String getDirector(){
+        return director;
+    }
+    public String getFecha(){
+        return fecha;
+    }
 
     public void setMensaje(String mensaje) {
         mMensaje = mensaje;
     }
     public void setRating(String rating) {
         this.rating = rating;
+    }
+    public void setDirector(String director) {
+        this.director = director;
+    }
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
