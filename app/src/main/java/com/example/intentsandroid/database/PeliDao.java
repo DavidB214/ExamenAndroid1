@@ -4,9 +4,8 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
-import com.example.intentsandroid.Nota;
+import com.example.intentsandroid.Peli;
 
 import java.util.List;
 
@@ -18,20 +17,18 @@ import java.util.List;
  */
 
 @Dao
-public interface NotaDao {
+public interface PeliDao {
 
-    @Query("SELECT * FROM nota")
-    List<Nota> getNotas();
+    @Query("SELECT * FROM peli")
+    List<Peli> getPelis();
 
-    @Query("SELECT * FROM nota WHERE mId LIKE :uuid")
-    Nota getNota(String uuid);
+    @Query("SELECT * FROM peli WHERE mId LIKE :uuid")
+    Peli getPeli(String uuid);
 
     @Insert
-    void addNota(Nota book);
+    void addPeli(Peli peli);
 
     @Delete
-    void deleteNota(Nota book);
+    void deletePeli(Peli peli);
 
-    @Update
-    void updateNota(Nota book);
 }

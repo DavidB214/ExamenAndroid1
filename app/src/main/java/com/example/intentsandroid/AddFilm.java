@@ -3,17 +3,11 @@ package com.example.intentsandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Rating;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.material.textfield.TextInputEditText;
 
 public class AddFilm extends AppCompatActivity {
 
@@ -21,8 +15,8 @@ public class AddFilm extends AppCompatActivity {
     private EditText mFecha;
     private EditText mDirector;
     private RatingBar mRating;
-    private NotaLab mNotaLab;
-    private Nota mNota;
+    private PeliLab mPeliLab;
+    private Peli mPeli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +26,8 @@ public class AddFilm extends AppCompatActivity {
         mRating= findViewById(R.id.ratingBar);
         mFecha=findViewById(R.id.any);
         mDirector=findViewById(R.id.dir);
-        mNotaLab=NotaLab.get(this);
+        mPeliLab = PeliLab.get(this);
 
-//        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-//    }
-//    public void pruebaIntent(View v){
-//
-//        Intent sendIntent = new Intent();
-//        TextInputEditText text = findViewById(R.id.textInput);
-//        sendIntent.setAction(Intent.ACTION_SEND);
-//        sendIntent.putExtra(Intent.EXTRA_TEXT, text.getText().toString());
-//        sendIntent.setType("text/plain");
-//
-//        if (sendIntent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(sendIntent);
-//        }
     }
 
     protected void onStart() {
@@ -90,24 +71,19 @@ public class AddFilm extends AppCompatActivity {
         String director = mDirector.getText().toString();
         String fecha = mFecha.getText().toString();
         if(!textoPelicula.equals("")) {
-            if(mNota == null) {
-                mNota = new Nota();
-                mNota.setMensaje(textoPelicula);
-                mNota.setRating(rating);
-                mNota.setDirector(director);
-                mNota.setFecha(fecha);
-                mNota.setRating(rating);
-                mNotaLab.addNota(mNota);
+            if(mPeli == null) {
+                mPeli = new Peli();
+                mPeli.setMensaje(textoPelicula);
+                mPeli.setRating(rating);
+                mPeli.setDirector(director);
+                mPeli.setFecha(fecha);
+                mPeli.setRating(rating);
+                mPeliLab.addPeli(mPeli);
                 Toast.makeText(this, "Creada",
-                        Toast.LENGTH_SHORT).show();
-            } else {
-                mNota.setMensaje(textoPelicula);
-                mNotaLab.updateNota(mNota);
-                Toast.makeText(this, "Actualizada",
                         Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "Crea nota primero",
+            Toast.makeText(this, "Inserta datos para añadir una Peli",
                     Toast.LENGTH_SHORT).show();
         }
     }

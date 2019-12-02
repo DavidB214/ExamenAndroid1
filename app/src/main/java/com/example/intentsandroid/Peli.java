@@ -14,8 +14,8 @@ import java.util.UUID;
  * @version 2018.07
  */
 
-@Entity(tableName = "nota")
-public class Nota {
+@Entity(tableName = "peli")
+public class Peli {
     @PrimaryKey
     @NonNull
     private String mId;
@@ -31,7 +31,7 @@ public class Nota {
     @ColumnInfo(name = "fecha")
     private String fecha;
 
-    public Nota() {
+    public Peli() {
         mId = UUID.randomUUID().toString();
     }
 

@@ -13,11 +13,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -25,10 +22,9 @@ public class MyRates extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        mTextoNota = findViewById(R.id.nomPeli);
 
-        mNotaLab = NotaLab.get(this);
-        List<Nota> notas = mNotaLab.getNotas();
+        mPeliLab = PeliLab.get(this);
+        List<Peli> notas = mPeliLab.getPelis();
         LinearLayout llBotonera = (LinearLayout) findViewById(R.id.listado);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -42,7 +38,6 @@ public class MyRates extends AppCompatActivity {
             button.setBackgroundResource(R.drawable.button_style);
             TextView tx=new TextView(this);
             tx.setX(50);
-//            tx.setLayoutParams(lp);
             //Asignamos propiedades de layout al boton
             //Asignamos Texto al botón
             //Añadimos el botón a la botonera
@@ -51,22 +46,17 @@ public class MyRates extends AppCompatActivity {
             llBotonera.addView(button);
             llBotonera.addView(tx);
         }
-//        if(notas.size() > 0) {
-//            mNota = notas.get(notas.size()-1);
-//            mTextoNota.setText(mNota.getMensaje());
-//        }
         Log.d("ESTATS","MyRates_on_resume");
     }
 
     private TextView mTextoNota;
-    private NotaLab mNotaLab;
-    private Nota mNota;
+    private PeliLab mPeliLab;
+    private Peli mPeli;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_rates);
         Toolbar toolbar = findViewById(R.id.toolbar);
-//        mTextoNota = findViewById(R.id.nomPeli);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
