@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button profile = findViewById(R.id.profileBTN);
+        final Button profile = findViewById(R.id.dwnl);
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
             {
                 Intent goToMyRates = new Intent(v.getContext(),MyRates.class);
                 startActivity(goToMyRates);
+            }
+        });
+
+        Button dwnlB=findViewById(R.id.dwnlButton);
+        dwnlB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,TrailerDownload.class);
+                startActivity(i);
             }
         });
 

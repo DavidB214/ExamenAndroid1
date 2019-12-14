@@ -9,6 +9,8 @@
     <string name="sex_prompt">Selecione su sexo</string>
     <string name="nota_creada">Peli creada</string>
     <string name="nota_actualizada">Peli Actualizada</string>
+    <string name="download">Download</string>
+    <string name="trailer_download">Trailer Download</string>
 
     <string-array name="sex">
         <item>Masculi</item>

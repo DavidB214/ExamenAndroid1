@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.intentsandroid"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -34,4 +34,9 @@ android {
         implementation 'android.arch.persistence.room:runtime:1.1.1'
         annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
     }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:+'
+    implementation 'androidx.constraintlayout:constraintlayout:+'
 }
