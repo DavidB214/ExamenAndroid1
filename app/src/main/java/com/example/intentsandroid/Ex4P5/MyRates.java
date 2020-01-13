@@ -1,8 +1,9 @@
-package com.example.intentsandroid;
+package com.example.intentsandroid.Ex4P5;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.intentsandroid.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 

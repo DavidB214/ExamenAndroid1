@@ -1,6 +1,4 @@
-package com.example.intentsandroid;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.intentsandroid.Ex4P4;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -10,12 +8,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.intentsandroid.R;
 
 public class Profile extends AppCompatActivity {
 

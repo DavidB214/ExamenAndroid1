@@ -1,4 +1,4 @@
-package com.example.intentsandroid;
+package com.example.intentsandroid.Ex4P4;
 import android.annotation.SuppressLint;
 import android.content.Context;
 

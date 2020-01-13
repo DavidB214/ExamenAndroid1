@@ -5,7 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.intentsandroid.Peli;
+import com.example.intentsandroid.Ex4P5.Peli;
 
 import java.util.List;
 

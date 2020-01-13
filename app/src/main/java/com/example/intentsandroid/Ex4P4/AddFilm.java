@@ -1,19 +1,15 @@
-package com.example.intentsandroid;
+package com.example.intentsandroid.Ex4P4;
 
-import androidx.annotation.CheckResult;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.intentsandroid.R;
 
 public class AddFilm extends AppCompatActivity {
 
@@ -33,7 +29,6 @@ public class AddFilm extends AppCompatActivity {
         mFecha=findViewById(R.id.any);
         mDirector=findViewById(R.id.dir);
         mPeliLab = PeliLab.get(this);
-
 
     }
 
@@ -86,13 +81,12 @@ public class AddFilm extends AppCompatActivity {
                 mPeli.setFecha(fecha);
                 mPeli.setRating(rating);
                 mPeliLab.addPeli(mPeli);
-                SmsManager sms = SmsManager.getDefault();
-                sms.sendTextMessage("677055613", null, textoPelicula+" "+rating , null, null);
+                Toast.makeText(this, "Creada",
+                        Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(this, "Inserta datos para añadir una Peli",
                     Toast.LENGTH_SHORT).show();
         }
     }
-
 }

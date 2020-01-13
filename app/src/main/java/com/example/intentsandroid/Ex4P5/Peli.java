@@ -1,4 +1,4 @@
-package com.example.intentsandroid;
+package com.example.intentsandroid.Ex4P5;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

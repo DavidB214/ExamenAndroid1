@@ -10,14 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TrailerDownload"></activity>
-        <activity android:name=".AddFilm" />
+        <activity android:name=".Ex4P5.TrailerDownload"></activity>
+        <activity android:name=".Ex4P5.AddFilm" />
         <activity
-            android:name=".MyRates"
+            android:name=".Ex4P5.MyRates"
             android:label="@string/title_activity_my_rates"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Profile" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Ex4P5.Profile" />
+        <activity android:name=".Ex4P5.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

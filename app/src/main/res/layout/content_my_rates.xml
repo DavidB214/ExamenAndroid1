@@ -4,5 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyRates"
+    tools:context=".Ex4P5.MyRates"
     tools:showIn="@layout/activity_my_rates"/>

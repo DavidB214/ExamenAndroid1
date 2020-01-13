@@ -1,6 +1,4 @@
-package com.example.intentsandroid;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.intentsandroid.Ex4P4;
 
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
@@ -12,6 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.intentsandroid.R;
 
 import java.io.File;
 
